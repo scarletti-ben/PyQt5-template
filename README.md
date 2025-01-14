@@ -73,4 +73,3 @@ In practice you can edit any function, method, class or module in the project in
 
 ### Installing Repository and Dependences / Running `main.py` in a Virtual Environment (GIF)
 ![animation](https://github.com/user-attachments/assets/a9394f03-7d7b-4b9d-b646-38db22aa9328)
-
