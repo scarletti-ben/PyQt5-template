@@ -38,8 +38,8 @@ def initialise_extras(self) -> None:
 In practice you can edit any function, method, class or module in the project in any way to add or change functionality!
 
 # Miscellaneous
-- Project is for manual tweaking of widgets and layouts, without the use of `Qt Designer`
-- No logging is currently enabled for this simple project, occasional `print` statements have been used instead
+- The project does not make use of `Qt Designer`
+- The `logging` module is not currently used in this project, occasional `print` statements have been used instead
 - `settings.py` is used to read `settings.json` and load relevant settings for the main application, no functionality has yet been added for altering settings during runtime
 - `PyQt5-template` installs and uses `PyQt5`, you can read about it on `PyPi` via this [link](https://pypi.org/project/PyQt5/)
 
@@ -57,17 +57,18 @@ In practice you can edit any function, method, class or module in the project in
 09 │   │   ├── menu_bar.py
 10 │   │   └── status_bar.py
 11 │   ├── __init__.py
-12 │   └── main_window.py
-13 ├── resources/
-14 │   ├── fonts/
-15 │   │   └── font.ttf
-16 │   └── icons/
-17 │       └── icon.png
-18 ├── .gitignore
-19 ├── LICENSE
-20 ├── main.py
-21 ├── README.md
-22 └── requirements.txt
+12 │   ├── main_window.py
+13 │   └── settings.json
+14 ├── resources/
+15 │   ├── fonts/
+16 │   │   └── font.ttf
+17 │   └── icons/
+18 │       └── icon.png
+19 ├── .gitignore
+20 ├── LICENSE
+21 ├── main.py
+22 ├── README.md
+23 └── requirements.txt
 ```
 
 ### Installing Repository and Dependences / Running `main.py` in a Virtual Environment (GIF)
