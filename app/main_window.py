@@ -91,6 +91,13 @@ class MainWindow(QMainWindow):
         # ! ==============================================
 
         menu = self.menuBar()
+
+        menu.file_menu = menu.addMenu("&File")
+        action = QAction(QIcon(), "&Open", menu)
+        action.setStatusTip("'Open' button status message")
+        action.triggered.connect(test)
+        menu.file_menu.addAction(action)
+
         menu.help_menu = menu.addMenu("&Help")
         action = QAction(QIcon(), "&Information", menu)
         action.setStatusTip("'Information' button status message")
