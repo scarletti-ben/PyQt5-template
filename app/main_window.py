@@ -87,7 +87,7 @@ class MainWindow(QMainWindow):
         self.add_shortcut("Ctrl+O", test)
 
         # ! ==============================================
-        # ! Add to Menu (Can be done in menu.py)
+        # ! Add to Menu (Can also be done in menu.py)
         # ! ==============================================
 
         menu = self.menuBar()

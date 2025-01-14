@@ -1,10 +1,37 @@
-# WORK IN PROGRESS
-
-In its current state, this `README.md` is a work in progress and the template is non-functional.
-
 # PyQt Template
+- You can find `PyQt5` on `PyPi` via this [link](https://pypi.org/project/PyQt5/)
 
-### Project Template
+### Overview
+This template repository contains the skeleton of a `PyQt5` application, written in `Python`. With the current directory structure it is easy to add new custom widgets to the `widgets` folder, and alter the widgets displayed in the app by editing `main_window.py`.
+
+### Entry Point
+The entry point of the app is `main.py`, it initialises the `PyQt5` application, loads configuration settings, creates the `MainWindow` and starts the application.
+```python
+# Excerpt from main.py
+
+app = QApplication(sys.argv) # < Initialise the PyQt5 core and pass system arguments
+Settings.initialise() # < Initialise settings and load configuration files
+window = MainWindow() # < Initialise the window, including its layout and widgets
+window.show()  # < Display the window on the screen
+sys.exit(app.exec()) # < Start the event loop and exit when the window is closed
+```
+
+### Adding and Changing Functionality of the Application
+Unless doing a major overhaul of the project, you can get a lot of mileage out of editing `main_window.py`
+
+Currently, the method `initialise_extras` on the `MainWindow` class has been used to separate custom code from the more essential initialisation. Starting there might be easiest.
+```python
+def initialise_extras(self) -> None:
+    """Example of messy MainWindow code separated from the rest"""
+```
+In practice you can edit any function, method, class or module in the project in any way to add or change functionality!
+
+# Miscellaneous
+- Project is for manual tweaking of widgets and layouts, without the use of `Qt Designer`
+- No logging is currently enabled for this simple project, occasional `print` statements have been used instead
+- `settings.py` is used to read `settings.json` and load relevant settings for the main application, no functionality has yet been added for altering settings during runtime
+
+### Project Structure
 ```
 00 PyQt5-template/
 01 ├── app/
@@ -14,50 +41,19 @@ In its current state, this `README.md` is a work in progress and the template is
 05 │   │   └── tools.py
 06 │   ├── widgets/
 07 │   │   ├── __init__.py
-08 │   │   └── menu.py
-09 │   ├── __init__.py
-10 │   └── widget.py
-11 ├── resources/
-12 │   ├── icons/
-13 │   │   └── icon.png
-14 │   └── fonts/
-15 │       └── font.ttf
-16 ├── .gitignore
-17 ├── LICENSE
-18 ├── main.py
-19 ├── README.md
-20 └── requirements.txt
+08 │   │   ├── custom_widget.py
+09 │   │   ├── menu_bar.py
+10 │   │   └── status_bar.py
+11 │   ├── __init__.py
+12 │   └── main_window.py
+13 ├── resources/
+14 │   ├── fonts/
+15 │   │   └── font.ttf
+16 │   └── icons/
+17 │       └── icon.png
+18 ├── .gitignore
+19 ├── LICENSE
+20 ├── main.py
+21 ├── README.md
+22 └── requirements.txt
 ```
-
-# Miscellaneous
-- Add logging
-- No logging, check console for print statements
-- Without `Qt Designer`
-- `app` at line `01` is a top-level package
-- Settings are initialised early, and therefore accessable by any future modules
-- Extensible
-- Modular
-- You can find `PyQt5` on `PyPi` via this [link](https://pypi.org/project/PyQt5/)
-- Containers need central_widgets and layouts
-- Suggestions: setObjectName => Works similar to id="" in HTML so that you can search for an element to change without a direct reference to it
-
-```python
-class Menu(QMenuBar):
-    def __init__(self, parent: QWidget = None) -> None:
-        """Initialise a Menu object"""
-        super().__init__(parent)
-```
-
-- Super and parent are essentially ensuring the widget goes into the layout of the parent
-
-```
-The QMainWindow is a special widget which comes bundled with a bunch of built-in capabilities, such as the dock widgets, toolbars, statusbars and menus. These are all handled through built-in layouts on the main window.
-
-Because of this you can’t override the layout on a QMainWindow object, like you can for other widgets (if you did, none of these things would work).
-
-The setCentralWidget sets a widget into the middle of the window layout, in a region set aside for the window content.
-
-If you want to set a layout on the content in the main window, you can create a container widget using QWidget and apply the layout to that.
-```
-
-You can use QWidget instead of QMainWindow but it won't have toolbar / statusbar etc functionality
