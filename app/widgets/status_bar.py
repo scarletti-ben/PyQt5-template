@@ -1,18 +1,19 @@
-''' Docstring for .../app/window.py '''
+''' Docstring for .../app/widgets/status_bar.py '''
 # < ========================================================
 # < Imports
 # < ========================================================
 
 from PyQt5.QtWidgets import (
     QWidget, 
-    QMenuBar
+    QStatusBar
 )
 
 # < ========================================================
-# < Menu Class
+# < StatusBar Widget Class
 # < ========================================================
 
-class Menu(QMenuBar):
+class StatusBar(QStatusBar):
     def __init__(self, parent: QWidget = None) -> None:
-        """Initialise a Menu object"""
+        """Initialise a StatusBar widget"""
         super().__init__(parent)
+        self.showMessage("Default status message")
