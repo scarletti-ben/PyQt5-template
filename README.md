@@ -55,20 +55,21 @@ In practice you can edit any function, method, class or module in the project in
 07 │   │   ├── __init__.py
 08 │   │   ├── custom_widget.py
 09 │   │   ├── menu_bar.py
-10 │   │   └── status_bar.py
-11 │   ├── __init__.py
-12 │   ├── main_window.py
-13 │   └── settings.json
-14 ├── resources/
-15 │   ├── fonts/
-16 │   │   └── font.ttf
-17 │   └── icons/
-18 │       └── icon.png
-19 ├── .gitignore
-20 ├── LICENSE
-21 ├── main.py
-22 ├── README.md
-23 └── requirements.txt
+10 │   │   ├── status_bar.py
+11 │   │   └── tool_bar.py
+12 │   ├── __init__.py
+13 │   ├── main_window.py
+14 │   └── settings.json
+15 ├── resources/
+16 │   ├── fonts/
+17 │   │   └── ...
+18 │   └── icons/
+19 │       └── ...
+20 ├── .gitignore
+21 ├── LICENSE
+22 ├── main.py
+23 ├── README.md
+24 └── requirements.txt
 ```
 
 ### Installing Repository and Dependences / Running `main.py` in a Virtual Environment (GIF)

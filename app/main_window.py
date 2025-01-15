@@ -19,6 +19,7 @@ from PyQt5.QtGui import (
 from .utils.settings import Settings
 from .widgets.menu_bar import MenuBar
 from .widgets.status_bar import StatusBar
+from .widgets.tool_bar import ToolBar
 from .widgets.custom_widget import CustomWidget
 
 # < ========================================================
@@ -30,11 +31,14 @@ class MainWindow(QMainWindow):
         """Initialise the MainWindow"""
         super().__init__()
         self.setWindowTitle(Settings.TITLE)
-        self.setWindowIcon(QIcon())
+        self.icon = QIcon(Settings.ICON)
+        self.setWindowIcon(self.icon)
         self.setGeometry(Settings.X, Settings.Y, Settings.W, Settings.H)
         self.initialise_central_widget()
         self.setMenuBar(MenuBar(self))
         self.setStatusBar(StatusBar(self))
+        self.toolbar = ToolBar("Toolbar", self)
+        self.addToolBar(self.toolbar)
         self.center()
         self.initialise_extras()
 
@@ -87,19 +91,28 @@ class MainWindow(QMainWindow):
         self.add_shortcut("Ctrl+O", test)
 
         # ! ==============================================
-        # ! Add to Menu (Can also be done in menu.py)
+        # ! Add to MenuBar (Can do in menu_bar.py)
         # ! ==============================================
 
         menu = self.menuBar()
 
         file_menu = menu.addMenu("&File")
-        action = QAction(QIcon(), "&Open", menu)
+        action = QAction(self.icon, "&Open", menu)
         action.setStatusTip("'Open' button status message")
         action.triggered.connect(test)
         file_menu.addAction(action)
 
         help_menu = menu.addMenu("&Help")
-        action = QAction(QIcon(), "&Information", menu)
+        action = QAction(self.icon, "&Information", menu)
         action.setStatusTip("'Information' button status message")
         action.triggered.connect(test)
         help_menu.addAction(action)
+
+        # ! ==============================================
+        # ! Add to ToolBar (Can do in tool_bar.py)
+        # ! ==============================================
+
+        action = QAction(self.icon, "&Action", self)
+        action.setStatusTip("'Toolbar' button status message")
+        action.triggered.connect(test)
+        self.toolbar.addAction(action)
