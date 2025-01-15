@@ -72,5 +72,24 @@ In practice you can edit any function, method, class or module in the project in
 24 └── requirements.txt
 ```
 
+### Abridged Project Structure (Python Files)
+```
+app/
+
+  utils/
+    settings.py
+    tools.py
+
+  widgets/
+    custom_widget.py
+    menu_bar.py
+    status_bar.py
+    tool_bar.py
+
+  main_window.py
+
+main.py
+```
+
 ### Installing Repository and Dependences / Running `main.py` in a Virtual Environment (GIF)
 ![animation](https://github.com/user-attachments/assets/a9394f03-7d7b-4b9d-b646-38db22aa9328)
