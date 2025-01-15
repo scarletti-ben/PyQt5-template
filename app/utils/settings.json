@@ -1,5 +1,6 @@
 {
     "TITLE": "PyQt5-template",
+    "ICON": "resources/icons/material-128x128.ico",
     "X": 100,
     "Y": 100,
     "W": 720,
